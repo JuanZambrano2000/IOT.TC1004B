@@ -19,4 +19,8 @@
 ## PIPES
 - `ps -fea | grep bash` busca todos los procesos que tienen bash
 - `ps -fea | grep bash | wc -1` cuenta las lineas de los procesos que tienen bash
-podemos conectar programas a ls, como `ls | ./tomay` nos regresa los archivos que hay pero en mayuscula.
+podemos conectar programas a otros comandos, como `ls | ./tomay` nos regresa los archivos que hay pero en mayuscula.
+-`ls | ./tomay > archivo.txt` la salida de nuestro programa la estamos convirtiendo en archivo.txt
+-`cat archivo.txt` nos sirve para visualizar archivos.
+## THREADS
+- Al correr thread.c tenemos que agregar la libreria manualmente con `gcc -o thread thread.c -lpthread`
