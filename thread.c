@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <pthread.h>
+#define NUM_THREADS 100
 //alias para tipo de dato
 typedef struct thread_data{
     int threadId;
@@ -14,13 +15,14 @@ void *holaMundo(void *arg){
     pthread_exit(NULL);
 }
 int main(){
+    ThreadData threadData[NUM_THREADS];
     for(int i=0;i<100;i++){
         ThreadData myData; //nuevo tipo de dato
         pthread_t threadId;
         myData.threadId=i;
         //al poner un & antes del dato nos regresa la direccion de memoria donde esta el valor
         //convertimos del dato Thread_data a un tipo generico
-        pthread_create(&threadId,NULL,holaMundo,(void *)&myData); //Creamos un hilo
+        pthread_create(&threadId,NULL,holaMundo,(void *)&threadData[i]); //Creamos un hilo
     } 
     pthread_exit(NULL); //Espera que los hilos terminen y el programa principal lo termina
     //return 0;
